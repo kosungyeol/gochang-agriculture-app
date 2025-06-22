@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- 알림 아이콘 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔔"
+            android:textSize="60sp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center" />
+
+        <!-- 알림 제목 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="신청 기간입니다!"
+            android:textSize="32sp"
+            android:textColor="#2E7D32"
+            android:textStyle="bold"
+            android:layout_marginBottom="30dp"
+            android:gravity="center" />
+
+        <!-- 사업명 -->
+        <TextView
+            android:id="@+id/tvNotificationProjectName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="중소농기계보조사업"
+            android:textSize="28sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="25dp" />
+
+        <!-- 신청기간 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="25dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📅 신청기간: "
+                android:textSize="24sp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/tvNotificationPeriod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2025.03.01~03.31"
+                android:textSize="24sp"
+                android:textColor="#E53935"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- 신청장소 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍 신청장소: "
+                android:textSize="24sp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/tvNotificationLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="농업정책과"
+                android:textSize="24sp"
+                android:textColor="#1976D2"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- 내일 오전 10시 알림 버튼 -->
+        <Button
+            android:id="@+id/btnTomorrowAlarm"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="⏰ 내일 오전 10시 알림"
+            android:textSize="26sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/button_tomorrow_selector"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 내년 동일사업 다시알림 버튼 -->
+        <Button
+            android:id="@+id/btnNextYearAlarm"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="📅 내년 동일사업 다시알림"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/button_nextyear_selector"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 관심없음 버튼 -->
+        <Button
+            android:id="@+id/btnNotInterested"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="❌ 관심없음"
+            android:textSize="26sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/button_dismiss_selector" />
+
+    </LinearLayout>
+</ScrollView>
