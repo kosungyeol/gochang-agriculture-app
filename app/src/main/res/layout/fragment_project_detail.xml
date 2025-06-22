@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- 진행상황 표시 -->
+        <TextView
+            android:id="@+id/tvProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌾 농업 사업 1/8"
+            android:textSize="24sp"
+            android:textColor="#2E7D32"
+            android:textStyle="bold"
+            android:layout_marginBottom="30dp"
+            android:gravity="center" />
+
+        <!-- 사업명 -->
+        <TextView
+            android:id="@+id/tvProjectName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="중소농기계"
+            android:textSize="30sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="25dp" />
+
+        <!-- 신청기간 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📅 "
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tvApplicationPeriod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2025.03.01~03.31"
+                android:textSize="26sp"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+        <!-- 지원내용1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💰 "
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tvSupport1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="농기계구입"
+                android:textSize="26sp"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+        <!-- 지원내용2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💵 "
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tvSupport2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최대200만원"
+                android:textSize="26sp"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+        <!-- 신청대상 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👤 "
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tvTarget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="농업인"
+                android:textSize="26sp"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+        <!-- 신청장소 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍 "
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tvLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="농업정책과"
+                android:textSize="26sp"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+        <!-- 기타사항 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ℹ️ "
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tvEtc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="선착순"
+                android:textSize="26sp"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+        <!-- 알림받기 버튼 -->
+        <Button
+            android:id="@+id/btnNotification"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="🔔 알림받기"
+            android:textSize="28sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/button_notification_selector" />
+
+        <!-- 스와이프 안내 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="← → 좌우로 넘겨보세요"
+            android:textSize="18sp"
+            android:textColor="#757575"
+            android:gravity="center"
+            android:layout_marginTop="20dp" />
+
+    </LinearLayout>
+</ScrollView>
