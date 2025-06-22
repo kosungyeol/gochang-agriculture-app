@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.gochang.agriculture.MainActivity
 import com.gochang.agriculture.R
 import com.gochang.agriculture.databinding.FragmentUserInfoBinding
@@ -53,12 +54,18 @@ class UserInfoFragment : Fragment() {
             vibrator.vibrate(100) // 0.1초 진동
             if (validateInput()) {
                 saveUserInfo()
-                (activity as? MainActivity)?.let { mainActivity ->
-                    // ViewPager의 다음 페이지로 이동
-                    val viewPager = mainActivity.binding.viewPager
-                    if (viewPager.currentItem < 1) {
-                        viewPager.currentItem = viewPager.currentItem + 1
-                    }
+                navigateToNextPage()
+            }
+        }
+    }
+    
+    private fun navigateToNextPage() {
+        (activity as? MainActivity)?.let { mainActivity ->
+            // ViewPager를 findViewById로 찾기
+            val viewPager = mainActivity.findViewById<ViewPager2>(R.id.viewPager)
+            viewPager?.let { pager ->
+                if (pager.currentItem < 1) {
+                    pager.currentItem = pager.currentItem + 1
                 }
             }
         }
