@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- 앱 제목 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌾 농업보조사업"
+            android:textSize="32sp"
+            android:textColor="#2E7D32"
+            android:textStyle="bold"
+            android:layout_marginBottom="40dp"
+            android:gravity="center" />
+
+        <!-- 이름 입력 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="👤 이름"
+            android:textSize="28sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:hint="김○○○"
+            android:textSize="26sp"
+            android:textColor="#000000"
+            android:background="@drawable/edittext_background"
+            android:padding="20dp"
+            android:layout_marginBottom="30dp" />
+
+        <!-- 생년월일 입력 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📅 생년월일"
+            android:textSize="28sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp" />
+
+        <EditText
+            android:id="@+id/etBirthDate"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:hint="1960.01.01"
+            android:textSize="26sp"
+            android:textColor="#000000"
+            android:background="@drawable/edittext_background"
+            android:padding="20dp"
+            android:inputType="date"
+            android:layout_marginBottom="30dp" />
+
+        <!-- 연락처 입력 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📞 연락처"
+            android:textSize="28sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp" />
+
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:hint="010-1234-5678"
+            android:textSize="26sp"
+            android:textColor="#000000"
+            android:background="@drawable/edittext_background"
+            android:padding="20dp"
+            android:inputType="phone"
+            android:layout_marginBottom="30dp" />
+
+        <!-- 성별 선택 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="👫 성별"
+            android:textSize="28sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="40dp">
+
+            <Button
+                android:id="@+id/btnMale"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:text="👨 남자"
+                android:textSize="24sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_male_selector"
+                android:layout_marginEnd="10dp" />
+
+            <Button
+                android:id="@+id/btnFemale"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:text="👩 여자"
+                android:textSize="24sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_female_selector"
+                android:layout_marginStart="10dp" />
+
+        </LinearLayout>
+
+        <!-- 다음 버튼 -->
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="다음 ▶"
+            android:textSize="28sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/button_next_selector"
+            android:layout_marginTop="20dp" />
+
+    </LinearLayout>
+</ScrollView>
