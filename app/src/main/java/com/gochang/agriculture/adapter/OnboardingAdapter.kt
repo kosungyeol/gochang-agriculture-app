@@ -6,7 +6,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.gochang.agriculture.fragment.UserInfoFragment
 import com.gochang.agriculture.fragment.InterestSelectionFragment
 
-class OnboardingAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
+class OnboardingAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
     
     override fun getItemCount(): Int = 2
     
