@@ -16,6 +16,8 @@ import com.gochang.agriculture.model.Project
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var notificationManager: NotificationManager
+    private lateinit var projectAdapter: ProjectAdapter
+    private lateinit var projects: List<Project>
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,29 +28,47 @@ class HomeActivity : AppCompatActivity() {
         createNotificationChannels()
         setupProjects()
         setupTestButtons()
+        setupPageIndicator()
     }
     
     private fun setupProjects() {
-        val sampleProjects = getSampleProjects()
-        val adapter = ProjectAdapter(this, sampleProjects)
-        binding.viewPagerProjects.adapter = adapter
+        projects = getSampleProjects()
+        projectAdapter = ProjectAdapter(this, projects)
+        binding.viewPagerProjects.adapter = projectAdapter
         
-        // 페이지 변경 시 진동 피드백
+        // 초기 페이지 인디케이터 설정
+        updatePageIndicator(0)
+    }
+    
+    private fun setupPageIndicator() {
         binding.viewPagerProjects.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                // 진동 피드백은 프래그먼트에서 처리
+                updatePageIndicator(position)
             }
         })
     }
     
+    private fun updatePageIndicator(position: Int) {
+        val currentProject = projects[position]
+        val categoryEmoji = when(currentProject.category) {
+            "agriculture" -> "🌾"
+            "forestry" -> "🌲"
+            "livestock" -> "🐄"
+            "fishery" -> "🐟"
+            else -> "📋"
+        }
+        
+        binding.tvPageIndicator.text = "$categoryEmoji ${position + 1} / ${projects.size}"
+    }
+    
     private fun setupTestButtons() {
-        // 테스트 알림 버튼 추가 (기존 UI에 추가할 예정)
-        binding.btnTestNotification?.setOnClickListener {
+        // 테스트 알림 버튼
+        binding.btnTestNotification.setOnClickListener {
             sendTestNotification()
         }
         
-        binding.btnTestProjectNotification?.setOnClickListener {
+        binding.btnTestProjectNotification.setOnClickListener {
             sendTestProjectNotification()
         }
     }
@@ -105,23 +125,25 @@ class HomeActivity : AppCompatActivity() {
             .build()
             
         notificationManager.notify(System.currentTimeMillis().toInt(), notification)
-        Toast.makeText(this, "테스트 알림이 발송되었습니다!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "테스트 알림이 발송되었습니다! 📱", Toast.LENGTH_SHORT).show()
     }
     
     private fun sendTestProjectNotification() {
+        val currentProject = projects[binding.viewPagerProjects.currentItem]
+        
         val notification = NotificationCompat.Builder(this, "project_notifications")
             .setSmallIcon(R.drawable.ic_notification)
             .setContentTitle("🔔 신청 기간입니다!")
-            .setContentText("중소농기계 사업 신청이 시작되었습니다")
+            .setContentText("${currentProject.name} 사업 신청이 시작되었습니다")
             .setStyle(NotificationCompat.BigTextStyle()
-                .bigText("중소농기계 사업 신청이 시작되었습니다.\n신청기간: 2025.03.01~03.31\n지원내용: 농기계구입 최대200만원\n📍 농업정책과"))
+                .bigText("${currentProject.name} 사업 신청이 시작되었습니다.\n신청기간: ${currentProject.applicationPeriod}\n지원내용: ${currentProject.support1} ${currentProject.support2}\n📍 ${currentProject.location}"))
             .setAutoCancel(true)
             .setVibrate(longArrayOf(0, 500, 250, 500, 250, 500))
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .build()
             
         notificationManager.notify(System.currentTimeMillis().toInt(), notification)
-        Toast.makeText(this, "사업 알림 테스트가 발송되었습니다!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "${currentProject.name} 사업 알림이 발송되었습니다! 🔔", Toast.LENGTH_SHORT).show()
     }
     
     private fun getSampleProjects(): List<Project> {
