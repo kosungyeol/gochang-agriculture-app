@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- 제목 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚙️ 관심분야 선택"
+            android:textSize="32sp"
+            android:textColor="#2E7D32"
+            android:textStyle="bold"
+            android:layout_marginBottom="30dp"
+            android:gravity="center" />
+
+        <!-- 안내 문구 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="관심있는 분야를 선택하세요"
+            android:textSize="26sp"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:layout_marginBottom="40dp" />
+
+        <!-- 농업 버튼 -->
+        <Button
+            android:id="@+id/btnAgriculture"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="🌾 농업"
+            android:textSize="28sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/button_interest_selector"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 임업 버튼 -->
+        <Button
+            android:id="@+id/btnForestry"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="🌲 임업"
+            android:textSize="28sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/button_interest_selector"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 축산업 버튼 -->
+        <Button
+            android:id="@+id/btnLivestock"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="🐄 축산업"
+            android:textSize="28sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/button_interest_selector"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 수산업 버튼 -->
+        <Button
+            android:id="@+id/btnFishery"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="🐟 수산업"
+            android:textSize="28sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/button_interest_selector"
+            android:layout_marginBottom="40dp" />
+
+        <!-- 안내 문구 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="※ 여러 분야 선택 가능"
+            android:textSize="20sp"
+            android:textColor="#757575"
+            android:gravity="center"
+            android:layout_marginBottom="30dp" />
+
+        <!-- 다음 버튼 -->
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="다음 ▶"
+            android:textSize="28sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/button_next_selector" />
+
+    </LinearLayout>
+</ScrollView>
