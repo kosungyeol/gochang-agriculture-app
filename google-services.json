@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "847004696291",
+    "project_id": "gochang-farm-subsidy-2025",
+    "storage_bucket": "gochang-farm-subsidy-2025.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:847004696291:android:14488fe8dfb7b2b6ab4fd6",
+        "android_client_info": {
+          "package_name": "com.gochang.agriculture"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcrxs_w_UzjFHoD9HOTWhSDNa5Jqx_Ty0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:847004696291:android:b67cd4cc2f0da1c6ab4fd6",
+        "android_client_info": {
+          "package_name": "com.gochang.farmsubsidy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcrxs_w_UzjFHoD9HOTWhSDNa5Jqx_Ty0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
