@@ -53,6 +53,20 @@ dependencies {
     // ViewPager2 for swipe
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
     
+    // 엑셀 파일 처리
+    implementation 'org.apache.poi:poi:5.2.4'
+    implementation 'org.apache.poi:poi-ooxml:5.2.4'
+    
+    // 파일 선택기
+    implementation 'androidx.activity:activity-ktx:1.8.2'
+    implementation 'androidx.fragment:fragment-ktx:1.6.2'
+    
+    // WorkManager for background tasks
+    implementation 'androidx.work:work-runtime-ktx:2.9.0'
+    
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+    
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
