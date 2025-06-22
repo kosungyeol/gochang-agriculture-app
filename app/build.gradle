@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.gochang.agriculture"
-        minSdk 24
+        minSdk 26  // 24에서 26으로 변경 - MethodHandle API 지원을 위해
         targetSdk 34
         versionCode 1
         versionName "1.0"
