@@ -25,42 +25,15 @@
         <item name="android:navigationBarColor">#FFFFFF</item>
         <item name="android:windowLightNavigationBar">true</item>
         
-        <!-- Text appearance -->
-        <item name="android:textColor">#000000</item>
-        <item name="android:textSize">26sp</item>
+        <!-- Window -->
+        <item name="android:windowBackground">#FFFFFF</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
         
-        <!-- Enable edge-to-edge -->
-        <item name="android:windowTranslucentStatus">false</item>
-        <item name="android:windowTranslucentNavigation">false</item>
-    </style>
-    
-    <!-- Large button style for elderly users -->
-    <style name="ElderlyButtonStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">80dp</item>
-        <item name="android:textSize">28sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:layout_marginBottom">20dp</item>
-    </style>
-    
-    <!-- Large text style for elderly users -->
-    <style name="ElderlyTextStyle">
-        <item name="android:textSize">28sp</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginBottom">15dp</item>
-    </style>
-    
-    <!-- Large EditText style for elderly users -->
-    <style name="ElderlyEditTextStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">80dp</item>
+        <!-- Text appearance for elderly users -->
         <item name="android:textSize">26sp</item>
         <item name="android:textColor">#000000</item>
-        <item name="android:padding">20dp</item>
-        <item name="android:layout_marginBottom">30dp</item>
-        <item name="android:background">@drawable/edittext_background</item>
     </style>
-    
 </resources>
