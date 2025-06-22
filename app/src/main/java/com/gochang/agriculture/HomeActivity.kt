@@ -1,7 +1,13 @@
 package com.gochang.agriculture
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.gochang.agriculture.adapter.ProjectAdapter
 import com.gochang.agriculture.databinding.ActivityHomeBinding
@@ -9,13 +15,17 @@ import com.gochang.agriculture.model.Project
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
+    private lateinit var notificationManager: NotificationManager
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         
+        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        createNotificationChannels()
         setupProjects()
+        setupTestButtons()
     }
     
     private fun setupProjects() {
@@ -30,6 +40,88 @@ class HomeActivity : AppCompatActivity() {
                 // 진동 피드백은 프래그먼트에서 처리
             }
         })
+    }
+    
+    private fun setupTestButtons() {
+        // 테스트 알림 버튼 추가 (기존 UI에 추가할 예정)
+        binding.btnTestNotification?.setOnClickListener {
+            sendTestNotification()
+        }
+        
+        binding.btnTestProjectNotification?.setOnClickListener {
+            sendTestProjectNotification()
+        }
+    }
+    
+    private fun createNotificationChannels() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // 일반 알림 채널
+            val generalChannel = NotificationChannel(
+                "general_notifications",
+                "일반 알림",
+                NotificationManager.IMPORTANCE_HIGH
+            ).apply {
+                description = "일반적인 앱 알림"
+                enableVibration(true)
+                vibrationPattern = longArrayOf(0, 300, 200, 300)
+            }
+            
+            // 사업 알림 채널  
+            val projectChannel = NotificationChannel(
+                "project_notifications",
+                "사업 신청 알림",
+                NotificationManager.IMPORTANCE_HIGH
+            ).apply {
+                description = "농업보조사업 신청 기간 알림"
+                enableVibration(true)
+                vibrationPattern = longArrayOf(0, 500, 250, 500, 250, 500)
+            }
+            
+            // 긴급 알림 채널
+            val urgentChannel = NotificationChannel(
+                "urgent_notifications", 
+                "긴급 알림",
+                NotificationManager.IMPORTANCE_HIGH
+            ).apply {
+                description = "마감 임박 등 긴급 알림"
+                enableVibration(true)
+                vibrationPattern = longArrayOf(0, 100, 50, 100, 50, 100, 50, 500)
+            }
+            
+            notificationManager.createNotificationChannels(listOf(generalChannel, projectChannel, urgentChannel))
+        }
+    }
+    
+    private fun sendTestNotification() {
+        val notification = NotificationCompat.Builder(this, "general_notifications")
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle("🌾 고창 농업 알림 테스트")
+            .setContentText("알림이 정상적으로 작동합니다!")
+            .setStyle(NotificationCompat.BigTextStyle()
+                .bigText("고창군 농업보조사업 알림 시스템이 정상적으로 작동하고 있습니다. 이제 놓치지 마세요!"))
+            .setAutoCancel(true)
+            .setVibrate(longArrayOf(0, 300, 200, 300))
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .build()
+            
+        notificationManager.notify(System.currentTimeMillis().toInt(), notification)
+        Toast.makeText(this, "테스트 알림이 발송되었습니다!", Toast.LENGTH_SHORT).show()
+    }
+    
+    private fun sendTestProjectNotification() {
+        val notification = NotificationCompat.Builder(this, "project_notifications")
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle("🔔 신청 기간입니다!")
+            .setContentText("중소농기계 사업 신청이 시작되었습니다")
+            .setStyle(NotificationCompat.BigTextStyle()
+                .bigText("중소농기계 사업 신청이 시작되었습니다.\n신청기간: 2025.03.01~03.31\n지원내용: 농기계구입 최대200만원\n📍 농업정책과"))
+            .setAutoCancel(true)
+            .setVibrate(longArrayOf(0, 500, 250, 500, 250, 500))
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .build()
+            
+        notificationManager.notify(System.currentTimeMillis().toInt(), notification)
+        Toast.makeText(this, "사업 알림 테스트가 발송되었습니다!", Toast.LENGTH_SHORT).show()
     }
     
     private fun getSampleProjects(): List<Project> {
